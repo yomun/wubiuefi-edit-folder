@@ -57,7 +57,7 @@ cp -r build/winboot /host
 
 # 将 2 处路径 /ubuntu/disks/root.disk 
 # 改为 
-# /ubuntu_16/disks/root.disk
+# /ubuntu_20/disks/root.disk
 
 # 将 ro quiet splash $vt_handoff
 # 改为
@@ -69,7 +69,7 @@ cp -r build/winboot /host
 
 # $ root@none:/# vi /etc/fstab
 
-# /ubuntu/ 改为 /ubuntu_16/
+# /ubuntu/ 改为 /ubuntu_20/
 
 # 3) 更新 Grub 2
 
