@@ -34,7 +34,24 @@ cat /usr/lib/grub/i386-pc/lnxboot.img build/grubutil/core.img > build/winboot/wu
 
 cp -r build/winboot /host
 
-# --------------------- Windows 7 (修改 Windows Boot Manager 的设置和替换启动文件) ---------------------
+# --------------------- Windows 7 (修改 Windows Boot Manager 的设置和替换启动文件) --------------------
+# 1) 先将 C:\ubuntu 改名为 C:\ubuntu_16
+
+# 2) 用软件 EasyBCD 2.3　查看现在 ubuntu 16.04 所用的 ID
+
+# identifier              {905b6225-f81c-11e5-8d07-e79e7f21200d}
+# device                  partition=C:
+# path                    \ubuntu\winboot\wubildr.mbr
+# description             Ubuntu 16.04
+
+# 3) 然后进入 command prompt 输入以下, 修改以上的 path
+
+# > bcdedit /set {905b6225-f81c-11e5-8d07-e79e7f21200d} path \ubuntu_16\winboot\wubildr.mbr
+
+# 4) 将以上制作 C:\winboot　里的 5 个文件, 取代现在原有的 C:\ubuntu_16\winboot
+# 也要将 C:\wubildr 和 C:\wubildr.mbr 更换掉 (是否能进入 Grub 2, 这可是关键..)
+
+# -------------------------------------------------------------------------------------------------
 
 # 1) 进入 Grub 2, 选 ubuntu, 按 e, 进入编辑模式
 
